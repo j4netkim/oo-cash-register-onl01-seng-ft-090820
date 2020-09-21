@@ -6,4 +6,12 @@ class CashRegister
     @total = 0
     @items = []
     @last_items = []
-  end     
+  end
+
+  def apply_item(title, price, quantity = 1)
+    self.total += price * quantity
+    quantity.times do
+      @items << title
+    end
+    self.last_transaction = price * quantity
+  end 
